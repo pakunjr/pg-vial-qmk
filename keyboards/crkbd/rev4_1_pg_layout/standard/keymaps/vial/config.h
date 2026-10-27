@@ -17,12 +17,12 @@
 #define VIAL_TAP_DANCE_ENTRIES 41
 
 // QMK Settings -> Tap-Hold
-#define TAPPING_TERM 200
-#define QUICK_TAP_TERM 200
+#define TAPPING_TERM 600
+#define QUICK_TAP_TERM 600
 #define TAPPING_TOGGLE 2       // Taps needed to toggle a TT(layer) key
 
 // QMK Settings -> Combo
-#define COMBO_TERM 80          // Increasing this may make all keys sluggish
+#define COMBO_TERM 100          // Increasing this may make all keys sluggish
 
 // QMK Settings -> One Shot Keys
 #define ONESHOT_TAP_TOGGLE 2   // Taps needed to lock a one-shot key
