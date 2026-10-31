@@ -10,10 +10,10 @@
 
 #undef DYNAMIC_KEYMAP_LAYER_COUNT // Enable this if there's an error of `already defined`
 #define DYNAMIC_KEYMAP_LAYER_COUNT 11
-#define DYNAMIC_KEYMAP_MACRO_COUNT 41
+#define DYNAMIC_KEYMAP_MACRO_COUNT 61
 
-#define VIAL_ALT_REPEAT_KEY_ENTRIES 20
-#define VIAL_COMBO_ENTRIES 60
+#define VIAL_ALT_REPEAT_KEY_ENTRIES 80
+#define VIAL_COMBO_ENTRIES 80
 #define VIAL_TAP_DANCE_ENTRIES 41
 
 // QMK Settings -> Tap-Hold
