@@ -73,6 +73,64 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+//
+// BEGIN; RGB color based on active layer
+//
+
+// #define CUE_LED 12  // Replace 12 with the RGB Matrix LED index for your chosen key
+//
+// bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+//     if (CUE_LED < led_min || CUE_LED >= led_max) {
+//         return false;
+//     }
+//
+//     switch (get_highest_layer(layer_state | default_layer_state)) {
+//         case 0:
+//             rgb_matrix_set_color(CUE_LED, 0, 180, 0);   // Layer 0: green
+//             break;
+//         case 1:
+//             rgb_matrix_set_color(CUE_LED, 0, 0, 255);   // Layer 1: blue
+//             break;
+//         case 2:
+//             rgb_matrix_set_color(CUE_LED, 255, 80, 0);  // Layer 2: orange
+//             break;
+//         default:
+//             rgb_matrix_set_color(CUE_LED, 180, 0, 180); // Other layers: purple
+//             break;
+//     }
+//
+//     return false;
+// }
+
+//
+// END: RGB color based on active layer
+//
+
+// Custom keycode for resetting the keyboard to Layer 0 and disabling any locked One-Shots
+enum custom_keycodes {
+    RESET_KB_STATE = QK_KB_0,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (keycode == RESET_KB_STATE) {
+        if (record->event.pressed) {
+            clear_oneshot_mods();           // Clear pending OSM
+            clear_oneshot_locked_mods();    // Clear tap-toggle-locked OSM
+            clear_mods();
+            clear_weak_mods();
+            reset_oneshot_layer();          // Clear pending or locked OSL
+
+            clear_keyboard();               // Sends broad release of active key/modifier state which can help clear a stuck key or modifier
+            send_keyboard_report();         // Tell the host that the key was released
+
+            layer_move(0);                  // Make layer 0 the active layer
+            default_layer_set(1UL << 0);    // Change the default layer to 0
+        }
+        return false; // Don't send the custom keycode to the host
+    }
+    return true;
+}
+
 #ifdef OLED_ENABLE
 #include <stdio.h>
 

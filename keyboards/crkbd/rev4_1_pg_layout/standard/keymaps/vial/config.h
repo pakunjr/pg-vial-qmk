@@ -13,7 +13,7 @@
 #define DYNAMIC_KEYMAP_MACRO_COUNT 61
 
 #define VIAL_ALT_REPEAT_KEY_ENTRIES 80
-#define VIAL_COMBO_ENTRIES 80
+#define VIAL_COMBO_ENTRIES 120
 #define VIAL_TAP_DANCE_ENTRIES 41
 
 // QMK Settings -> Tap-Hold
@@ -22,7 +22,7 @@
 #define TAPPING_TOGGLE 2       // Taps needed to toggle a TT(layer) key
 
 // QMK Settings -> Combo
-#define COMBO_TERM 100          // Increasing this may make all keys sluggish
+#define COMBO_TERM 80          // Increasing this may make all keys sluggish
 
 // QMK Settings -> One Shot Keys
 #define ONESHOT_TAP_TOGGLE 2   // Taps needed to lock a one-shot key
