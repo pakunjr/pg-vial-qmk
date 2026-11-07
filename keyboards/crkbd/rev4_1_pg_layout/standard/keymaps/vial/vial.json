@@ -37,9 +37,14 @@
     },
     "customKeycodes": [
         {
-            "name": "RESET_KB_STATE",
-            "title": "Reset OSM, OSL, and active layers",
-            "shortName": "Reset"
+            "name": "RESET_LEFT",
+            "title": "Reset OSM, OSL, and active layers; positioned on the left halve",
+            "shortName": "Reset Left"
+        },
+        {
+            "name": "RESET_RIGHT",
+            "title": "Reset OSM, OSL, and active layers; positioned on the right halve",
+            "shortName": "Reset Right"
         }
     ]
 }

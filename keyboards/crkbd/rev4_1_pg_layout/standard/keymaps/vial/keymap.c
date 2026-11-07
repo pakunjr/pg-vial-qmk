@@ -106,13 +106,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // END: RGB color based on active layer
 //
 
-// Custom keycode for resetting the keyboard to Layer 0 and disabling any locked One-Shots
+// Custom keycodes
 enum custom_keycodes {
-    RESET_KB_STATE = QK_KB_0,
+    RESET_LEFT = QK_KB_0,
+    RESET_RIGHT = QK_KB_1,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (keycode == RESET_KB_STATE) {
+    if (keycode == RESET_LEFT || keycode == RESET_RIGHT) {
         if (record->event.pressed) {
             clear_oneshot_mods();           // Clear pending OSM
             clear_oneshot_locked_mods();    // Clear tap-toggle-locked OSM
