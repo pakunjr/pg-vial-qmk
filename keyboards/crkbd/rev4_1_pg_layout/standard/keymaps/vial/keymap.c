@@ -108,12 +108,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Custom keycodes
 enum custom_keycodes {
-    RESET_LEFT = QK_KB_0,
-    RESET_RIGHT = QK_KB_1,
+    RESET_TO_L00 = QK_KB_0,
+    RESET_TO_L01 = QK_KB_1,
+    RESET_TO_L02 = QK_KB_2,
+    RESET_TO_L03 = QK_KB_3,
+    RESET_TO_L04 = QK_KB_4,
+    RESET_TO_L05 = QK_KB_5,
+    RESET_TO_L06 = QK_KB_6,
+    RESET_TO_L07 = QK_KB_7,
+    RESET_TO_L08 = QK_KB_8,
+    RESET_TO_L09 = QK_KB_9,
+    RESET_TO_L10 = QK_KB_10,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (keycode == RESET_LEFT || keycode == RESET_RIGHT) {
+    if (
+        keycode == RESET_TO_L00 ||
+        keycode == RESET_TO_L01 ||
+        keycode == RESET_TO_L02 ||
+        keycode == RESET_TO_L03 ||
+        keycode == RESET_TO_L04 ||
+        keycode == RESET_TO_L05 ||
+        keycode == RESET_TO_L06 ||
+        keycode == RESET_TO_L07 ||
+        keycode == RESET_TO_L08 ||
+        keycode == RESET_TO_L09 ||
+        keycode == RESET_TO_L10
+    ) {
         if (record->event.pressed) {
             clear_oneshot_mods();           // Clear pending OSM
             clear_oneshot_locked_mods();    // Clear tap-toggle-locked OSM
@@ -124,8 +145,44 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             clear_keyboard();               // Sends broad release of active key/modifier state which can help clear a stuck key or modifier
             send_keyboard_report();         // Tell the host that the key was released
 
-            layer_move(0);                  // Make layer 0 the active layer
-            default_layer_set(1UL << 0);    // Change the default layer to 0
+            // Set the active layer
+            switch (keycode) {
+                case RESET_TO_L00:
+                    layer_move(0);
+                    break;
+                case RESET_TO_L01:
+                    layer_move(1);
+                    break;
+                case RESET_TO_L02:
+                    layer_move(2);
+                    break;
+                case RESET_TO_L03:
+                    layer_move(3);
+                    break;
+                case RESET_TO_L04:
+                    layer_move(4);
+                    break;
+                case RESET_TO_L05:
+                    layer_move(5);
+                    break;
+                case RESET_TO_L06:
+                    layer_move(6);
+                    break;
+                case RESET_TO_L07:
+                    layer_move(7);
+                    break;
+                case RESET_TO_L08:
+                    layer_move(8);
+                    break;
+                case RESET_TO_L09:
+                    layer_move(9);
+                    break;
+                case RESET_TO_L10:
+                    layer_move(10);
+                    break;
+            }
+
+            default_layer_set(1UL << 0);    // Always make layer 0 the default layer
         }
         return false; // Don't send the custom keycode to the host
     }
