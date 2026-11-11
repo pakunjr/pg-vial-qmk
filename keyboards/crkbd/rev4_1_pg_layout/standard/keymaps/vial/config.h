@@ -6,7 +6,7 @@
 
 // #define MASTER_LEFT
 // #define MASTER_RIGHT
-#define EE_HANDS // Define above and comment this out if unsure of -bl value
+#define EE_HANDS            // The Firmware will read the handedness through EEPROM (this can also be set through VIAL using EEH Left/Right)
 
 #undef DYNAMIC_KEYMAP_LAYER_COUNT // Enable this if there's an error of `already defined`
 #define DYNAMIC_KEYMAP_LAYER_COUNT 11
@@ -33,10 +33,10 @@
 #define MOUSEKEY_DELAY 0
 #define MOUSEKEY_INTERVAL 10
 #define MOUSEKEY_MOVE_DELTA 1
-#define MOUSEKEY_MAX_SPEED 200
-#define MOUSEKEY_TIME_TO_MAX 180
-#define MOUSEKEY_WHEEL_DELAY 100
-#define MOUSEKEY_WHEEL_INTERVAL 10
+#define MOUSEKEY_MAX_SPEED 240
+#define MOUSEKEY_TIME_TO_MAX 200
+#define MOUSEKEY_WHEEL_DELAY 120
+#define MOUSEKEY_WHEEL_INTERVAL 6
 #define MOUSEKEY_WHEEL_MAX_SPEED 1
 #define MOUSEKEY_WHEEL_DELTA 1
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 0
