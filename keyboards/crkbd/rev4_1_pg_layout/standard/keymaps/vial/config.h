@@ -31,10 +31,10 @@
 // QMK Settings -> Mouse keys
 #define MOUSEKEY_OVERLAP_RESET // Acceleration resets when MOUSEKEY movement overlaps with each other
 #define MOUSEKEY_DELAY 0
-#define MOUSEKEY_INTERVAL 10
+#define MOUSEKEY_INTERVAL 20
 #define MOUSEKEY_MOVE_DELTA 1
 #define MOUSEKEY_MAX_SPEED 240
-#define MOUSEKEY_TIME_TO_MAX 200
+#define MOUSEKEY_TIME_TO_MAX 100
 #define MOUSEKEY_WHEEL_DELAY 120
 #define MOUSEKEY_WHEEL_INTERVAL 6
 #define MOUSEKEY_WHEEL_MAX_SPEED 1
